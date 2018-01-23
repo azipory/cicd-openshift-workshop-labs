@@ -1,6 +1,5 @@
-{
-    "name": "coolstore-microservice",
-    "description": "Web UI for the CoolStore Microservices App",
+"name": "coolstore-microservice",
+    "description": "A JBoss Developer retail demo featuring a pricing microservice, angular UI microservice, protected by Red Hat SSO",
     "authors": [
         "Red Hat"
     ],
@@ -9,6 +8,7 @@
     "devDependencies": {
         "patternfly": "3.17.0",
         "angular-patternfly": "3.17.0",
+	"bootstrap-switch": "3.3.2",
         "isotope": "2.2.2",
         "imagesloaded": "4.1.1",
         "angular-route": "1.5.10",
@@ -18,4 +18,3 @@
         "angular": "1.5.10",
         "jquery": "3.2.1"
     }
-}

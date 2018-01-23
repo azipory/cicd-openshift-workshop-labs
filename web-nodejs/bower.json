@@ -1,3 +1,4 @@
+{
 "name": "coolstore-microservice",
     "description": "A JBoss Developer retail demo featuring a pricing microservice, angular UI microservice, protected by Red Hat SSO",
     "authors": [
@@ -18,3 +19,4 @@
         "angular": "1.5.10",
         "jquery": "3.2.1"
     }
+}

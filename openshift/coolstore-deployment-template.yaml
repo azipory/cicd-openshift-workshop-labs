@@ -53,26 +53,23 @@ objects:
           - containerPort: 8080
             protocol: TCP
           livenessProbe:
-            failureThreshold: 10
-            exec:
-              command:
-                - curl
-                - '-f'
-                - 'http://localhost:8080'
-            initialDelaySeconds: 60
-            timeoutSeconds: 10
+            failureThreshold: 5
+            httpGet:
+              path: /
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 120
             periodSeconds: 5
             successThreshold: 1
             timeoutSeconds: 5
           readinessProbe:
-            failureThreshold: 10
-            exec:
-              command:
-                - curl
-                - '-f'
-                - 'http://localhost:8080'
-            initialDelaySeconds: 60
-            timeoutSeconds: 10
+            readinessProbe:
+            failureThreshold: 5
+            httpGet:
+              path: /
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 15
             periodSeconds: 5
             successThreshold: 1
             timeoutSeconds: 1
@@ -278,13 +275,13 @@ objects:
                 - -c
                 - :shutdown(timeout=60)
           livenessProbe:
-            failureThreshold: 10
+            failureThreshold: 5
             httpGet:
-              path: /api/availability/1
+              path: /node
               port: 8080
               scheme: HTTP
-            initialDelaySeconds: 60
-            periodSeconds: 10
+            initialDelaySeconds: 120
+            periodSeconds: 5
             successThreshold: 1
             timeoutSeconds: 5
           name: inventory
@@ -299,13 +296,13 @@ objects:
             name: ping
             protocol: TCP
           readinessProbe:
-            failureThreshold: 10
+            failureThreshold: 5
             httpGet:
-              path: /api/availability/1
+              path: /node
               port: 8080
               scheme: HTTP
-            initialDelaySeconds: 60
-            periodSeconds: 10
+            initialDelaySeconds: 15
+            periodSeconds: 5
             successThreshold: 1
             timeoutSeconds: 1
           resources:
